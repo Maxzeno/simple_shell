@@ -8,17 +8,20 @@
  *
  * Return: if successful returns 0
  */
-int main(int argc, char **argv, char *envp) {
+int main(int argc, char **argv, char *envp)
+}
     char *command;
     int status;
 
     status = 1;
 
-    while (status) {
-        command = readcommand();
-        argv = parsecommand(command);
-        status = executecommand(argv);
+    while (status) 
+    {
+      command = readcommand();
+      argv = parsecommand(command);
+      status = executecommand(argv);
     }
 
-    return 0;
+    return (0);
 }
+

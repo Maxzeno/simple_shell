@@ -9,7 +9,7 @@
  * Return: if successful returns 0
  */
 int main(int argc, char **argv, char *envp)
-}
+{
     char *command;
     int status;
 
@@ -17,9 +17,9 @@ int main(int argc, char **argv, char *envp)
 
     while (status) 
     {
-      command = readcommand();
-      argv = parsecommand(command);
-      status = executecommand(argv);
+        command = readcommand();
+        argv = parsecommand(command);
+        status = executecommand(argv);
     }
 
     return (0);

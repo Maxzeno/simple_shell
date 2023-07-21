@@ -20,15 +20,18 @@ char **parsecommand(char *text)
 	char **tokens = malloc(sizeof(char *) * buffersize);
 	index = 0;
 
+	if (tokens == NULL) {
+        perror("Error malloc");
+        exit(EXIT_FAILURE);
+    }
+
 	token = strtok(text, delimiter);
 	while (token) {
-		if (index == 0)
+		if (token[0] == '#')
 		{
-			tokens[index] = add_path_to_bin(token);
+			break;
 		}
-		else{
-			tokens[index] = token;
-		}
+		tokens[index] = token;
 
 		token = strtok(NULL, delimiter);
 		index++;
@@ -43,7 +46,14 @@ char **parsecommand(char *text)
 				exit(EXIT_FAILURE);
 			}
 		}
-	} ;
+	};
+
+	if (index == 0)
+	{
+		tokens[index] = "";
+		index++;
+	}
+	
 	tokens[index] = NULL;
 
 	return (tokens);

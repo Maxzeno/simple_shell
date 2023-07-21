@@ -9,11 +9,17 @@ char *readcommand(void)
 {
 	char *readed;
 	size_t buffersize;
-	
+	int is_ctrl_d;
+
 	readed = NULL;
 	buffersize = 0;
 	printf("$ ");
-    getline(&readed, &buffersize, stdin);
+    is_ctrl_d = getline(&readed, &buffersize, stdin);
+
+    if (is_ctrl_d == -1)
+    {
+    	exit(EXIT_FAILURE);
+    }
     
     return (readed);
 }

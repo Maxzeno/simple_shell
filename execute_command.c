@@ -9,18 +9,34 @@
 int executecommand(char **argv)
 {
 	pid_t pid;
-	char *env;
 
-	env = "/bin/env";
-
-	if (argv[0] == env)
+	if (strcmp(argv[0], "env") == 0)
 	{
 		return print_environment();
 	}
 
-	if (access(argv[0], X_OK) != 0)
+	if (strcmp(argv[0], "exit") == 0)
 	{
-		printf("%s: command not found\n", argv[0]+5);
+		if (argv[1])
+		{
+			exit(atoi(argv[1]));
+		}
+		return 0;
+	}
+
+	if (strcmp(argv[0], "$$") == 0) {
+        printf("%u\n", getpid());
+        return 1;
+     } 
+
+    if (strcmp(argv[0], "$?") == 0) {
+        printf("%d\n", 0);
+        return 1;
+    }
+
+	if (access(add_path_to_bin(argv[0]), X_OK) != 0)
+	{
+		printf("%s: command not found\n", argv[0]);
 		return (1);
 	}
 
@@ -32,7 +48,7 @@ int executecommand(char **argv)
 	}
 	if (pid == 0)
 	{
-		execve(argv[0], argv, NULL);
+		execvp(argv[0], argv);
 		exit(EXIT_FAILURE);
 	}
 	else

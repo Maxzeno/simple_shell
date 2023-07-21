@@ -12,12 +12,12 @@ char **parsecommand(char *text)
 	int buffersize;
 	int index;
 	char *token;
-	// char *delimiter;
-	// char **tokens;
+	char *delimiter;
+	char **tokens;
 
-	char delimiter[] = " \n\t\r\a";
+	delimiter = " \n\t\r\a";
 	buffersize = 64;
-	char **tokens = malloc(sizeof(char *) * buffersize);
+	tokens = malloc(sizeof(char *) * buffersize);
 	index = 0;
 
 	if (tokens == NULL) {
@@ -53,7 +53,7 @@ char **parsecommand(char *text)
 		tokens[index] = "";
 		index++;
 	}
-	
+
 	tokens[index] = NULL;
 
 	return (tokens);

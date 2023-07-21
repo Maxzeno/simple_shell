@@ -8,10 +8,11 @@
  *
  * Return: if successful returns 0
  */
-int main(int argc, char **argv, char *envp)
+int main(void)
 {
     char *command;
     int status;
+    char **argv;
 
     status = 1;
 

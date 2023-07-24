@@ -7,7 +7,7 @@
  *
  * Return: returns concatinated string /bin/ and originalString 
  */
-char *add_path_to_bin(char *originalString) 
+char *add_path_to_bin(char *originalString)
 {
     char* prefix;
     int newStringLength;
@@ -18,10 +18,8 @@ char *add_path_to_bin(char *originalString)
 
     prefixLength = strlen(prefix);
     
-    if (strncmp(originalString, prefix, prefixLength) == 0) 
-    {
+    if (strncmp(originalString, prefix, prefixLength) == 0)
         return (originalString);
-    }
 
     newStringLength = prefixLength + strlen(originalString) + 1;
     newString = malloc(sizeof(char *) * newStringLength);

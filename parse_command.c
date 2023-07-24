@@ -20,17 +20,18 @@ char **parsecommand(char *text)
 	tokens = malloc(sizeof(char *) * buffersize);
 	index = 0;
 
-	if (tokens == NULL) {
+	if (tokens == NULL)
+	{
         perror("Error malloc");
         exit(EXIT_FAILURE);
     }
 
 	token = strtok(text, delimiter);
-	while (token) {
+	while (token)
+	{
 		if (token[0] == '#')
-		{
 			break;
-		}
+		
 		tokens[index] = token;
 
 		token = strtok(NULL, delimiter);

@@ -5,12 +5,13 @@
  *
  * Return: Returns 1 if okay
  */
-int print_environment() 
+int print_environment(void) 
 {
     char** env;
 
     env = environ;
-    while (*env) {
+    while (*env)
+    {
         printf("%s\n", *env);
         env++;
     }

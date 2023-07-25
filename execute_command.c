@@ -57,8 +57,8 @@ int executecommand(char **argv)
 	if (strcmp(argv[0], "$$") == 0)
 		return (print_process_pid());
 
-    if (strcmp(argv[0], "$?") == 0)
-    	return (shell_exit_status());
+	if (strcmp(argv[0], "$?") == 0)
+		return (shell_exit_status());
 
 	if (access(add_path_to_bin(argv[0]), X_OK) != 0)
 		return (print_not_found(argv[0]));

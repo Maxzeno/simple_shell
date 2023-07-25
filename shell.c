@@ -16,7 +16,7 @@ int main(void)
 
     status = 1;
 
-    while (status) 
+    while (status)
     {
         command = readcommand();
         argv = parsecommand(command);

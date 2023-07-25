@@ -15,5 +15,8 @@ char **parsecommand(char *text);
 int executecommand(char **argv);
 char *add_path_to_bin(char *originalString);
 int print_environment(void);
+int shell_exit_status(void);
+int print_process_pid(void);
+int print_not_found(char *arg);
 
 #endif /* SHELL_H */

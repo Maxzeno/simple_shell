@@ -18,6 +18,6 @@ char *readcommand(void)
 
     if (is_ctrl_d == -1)
     	exit(EXIT_FAILURE);
-    
+
     return (readed);
 }

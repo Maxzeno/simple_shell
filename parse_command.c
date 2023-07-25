@@ -1,6 +1,28 @@
 #include "shell.h"
 
 /**
+ * print_error_malloc - prints Error malloc
+ *
+ * Return: void
+ */
+void print_error_malloc(void)
+{
+	perror("Error malloc");
+    exit(EXIT_FAILURE);
+}
+
+/**
+ * print_error_realloc - prints Error realloc
+ *
+ * Return: void
+ */
+void print_error_realloc(void)
+{
+	perror("Error realloc");
+    exit(EXIT_FAILURE);
+}
+
+/**
  * parsecommand - Parse's text that user enters and remove delimiter
  *
  * @text: the command entered by the user
@@ -19,12 +41,8 @@ char **parsecommand(char *text)
 	buffersize = 64;
 	tokens = malloc(sizeof(char *) * buffersize);
 	index = 0;
-
 	if (tokens == NULL)
-	{
-        perror("Error malloc");
-        exit(EXIT_FAILURE);
-    }
+		print_error_malloc();
 
 	token = strtok(text, delimiter);
 	while (token)
@@ -33,19 +51,14 @@ char **parsecommand(char *text)
 			break;
 		
 		tokens[index] = token;
-
 		token = strtok(NULL, delimiter);
 		index++;
-
 		if (index >= buffersize)
 		{
 			buffersize += 64;
 			tokens = realloc(tokens, buffersize * sizeof(char *));
 			if (tokens == NULL)
-			{
-				perror("Error realloc");
-				exit(EXIT_FAILURE);
-			}
+				print_error_realloc();
 		}
 	};
 
@@ -54,8 +67,6 @@ char **parsecommand(char *text)
 		tokens[index] = "";
 		index++;
 	}
-
 	tokens[index] = NULL;
-
 	return (tokens);
 }

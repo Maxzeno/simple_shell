@@ -5,9 +5,9 @@
  *
  * Return: Returns 1 if okay
  */
-int print_environment(void) 
+int print_environment(void)
 {
-    char** env;
+    char **env;
 
     env = environ;
     while (*env)

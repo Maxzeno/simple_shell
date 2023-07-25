@@ -9,7 +9,7 @@
  */
 char *add_path_to_bin(char *originalString)
 {
-    char* prefix;
+    char *prefix;
     int newStringLength;
     char *newString;
     int prefixLength;
@@ -17,7 +17,7 @@ char *add_path_to_bin(char *originalString)
     prefix = "/bin/";
 
     prefixLength = strlen(prefix);
-    
+
     if (strncmp(originalString, prefix, prefixLength) == 0)
         return (originalString);
 

@@ -1,0 +1,41 @@
+
+.TH man 1 "24 May 2023" "0.1" "simple_shell man 1 page"
+
+.SH NAME
+.B simple_shell
+- A program written in C and works on top of the linux kernel
+
+.SH SYNOPSIS
+ hsh [options] [file]
+
+.SH DESCRIPTION
+The sh utility is a command language interpreter that shall execute commands read from a command line as a string, the standard input, or a specified file
+
+.B Overview
+
+The simple_shell a cli that takes input stream from file or a buffer from stdin and executes depending on the input
+
+Always 0 for success, 1 for failure or -1
+
+.SH PATH
+
+It will searches the enviroment for the PATH env variable and executes if possible or return error
+
+.SH
+
+.SH OPTIONS
+.B simple_shell
+command flags follow the command and start with a hyphen.
+
+.SH EXAMPLE
+
+[command] [options]
+$ /bin/ls -l /tmp
+
+.SH BUGS
+no known bugs.
+
+
+.SH AUTHOR
+Nickson Nyamache, Paul Mulatya.
+

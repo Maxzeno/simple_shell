@@ -1,27 +1,18 @@
-#include "shell.h"
-
+#include "main.h"
 /**
- * main - the function that calls the shell
- * @argc: number of arguments passed
- * @argv: The array of string arguments passed
- * @envp: the environment arguments passed
- *
- * Return: if successful returns 0
- */
-int main(void)
+* main - The entry point of the program
+* @argc: parameter of type int .
+* @argv: parameter of type char **.
+* Return: int .
+*/
+int main(int argc, char **argv)
 {
-	char *command;
-	int status;
-	char **argv;
+	int is_interactivemode;
 
-	status = 1;
-
-	while (status)
+	is_interactivemode = isatty(STDIN_FILENO);
+	if (is_interactivemode == 0 && argc == 1)
 	{
-		command = readcommand();
-		argv = parsecommand(command);
-		status = executecommand(argv);
+		return (non_interactive_mode(argv));
 	}
-
-	return (0);
+	return (interactive_mode(argv));
 }

@@ -8,7 +8,7 @@
 int shell_exit_status(void)
 {
 	printf("%d\n", 0);
-    return (1);
+	return (1);
 }
 
 /**
@@ -19,7 +19,7 @@ int shell_exit_status(void)
 int print_process_pid(void)
 {
 	printf("%u\n", getpid());
-    return (1);
+	return (1);
 }
 
 /**

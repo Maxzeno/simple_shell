@@ -7,14 +7,14 @@
  */
 int print_environment(void)
 {
-    char **env;
+	char **env;
 
-    env = environ;
-    while (*env)
-    {
-        printf("%s\n", *env);
-        env++;
-    }
+	env = environ;
+	while (*env)
+	{
+		printf("%s\n", *env);
+		env++;
+	}
 
-    return (1);
+	return (1);
 }

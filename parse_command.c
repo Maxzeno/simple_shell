@@ -8,7 +8,7 @@
 void print_error_malloc(void)
 {
 	perror("Error malloc");
-    exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 /**
@@ -19,7 +19,7 @@ void print_error_malloc(void)
 void print_error_realloc(void)
 {
 	perror("Error realloc");
-    exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 /**
@@ -49,7 +49,7 @@ char **parsecommand(char *text)
 	{
 		if (token[0] == '#')
 			break;
-		
+
 		tokens[index] = token;
 		token = strtok(NULL, delimiter);
 		index++;

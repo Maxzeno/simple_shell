@@ -10,18 +10,18 @@
  */
 int main(void)
 {
-    char *command;
-    int status;
-    char **argv;
+	char *command;
+	int status;
+	char **argv;
 
-    status = 1;
+	status = 1;
 
-    while (status)
-    {
-        command = readcommand();
-        argv = parsecommand(command);
-        status = executecommand(argv);
-    }
+	while (status)
+	{
+		command = readcommand();
+		argv = parsecommand(command);
+		status = executecommand(argv);
+	}
 
-    return (0);
+	return (0);
 }

@@ -31,6 +31,7 @@ char *_strcpy(char *dest, char *src)
 int _putchar(char c)
 {
 	int num = 1;
+
 	return (write(num, &c, num));
 }
 
@@ -57,6 +58,7 @@ void _putpid(pid_t pid)
 {
 	char pid_str[20];
 	int i = 0;
+
 	do {
 		pid_str[i++] = pid % 10 + '0';
 		pid /= 10;
@@ -135,15 +137,15 @@ void *_realloc(void *ptr, size_t new_size)
 	if (new_ptr == NULL)
 		return (NULL);
 
-	old_size = *(size_t*)((char*)ptr - sizeof(size_t));
+	old_size = *(size_t *)((char *)ptr - sizeof(size_t));
 
 	copy_size = old_size < new_size ? old_size : new_size;
 	for (i = 0; i < copy_size; i++)
-		((char*)new_ptr)[i] = ((char*)ptr)[i];
+		((char *)new_ptr)[i] = ((char *)ptr)[i];
 
 	free(ptr);
 
-	*(size_t*)new_ptr = new_size;
+	*(size_t *)new_ptr = new_size;
 
 	return (new_ptr);
 }
@@ -229,5 +231,5 @@ int _strncmp(const char *str1, const char *str2, size_t n)
 			return (1);
 	}
 
-	return 0;
+	return (0);
 }

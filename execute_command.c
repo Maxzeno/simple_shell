@@ -76,8 +76,9 @@ int executecommand(char **argv)
 	if (pid == 0)
 	{
 		execve(add_path_to_bin(argv[0]), argv, envp);
-        perror("Error execve");
-        exit(EXIT_FAILURE);	}
+		perror("Error execve");
+		exit(EXIT_FAILURE);
+	}
 	else
 		wait(NULL);
 

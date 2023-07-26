@@ -22,11 +22,11 @@ int _putchar(char c);
 char *_strcpy(char *dest, char *src);
 void _puts(char *str);
 int _atoi(char *text);
-void *_realloc(void* ptr, size_t new_size) ;
+void *_realloc(void *ptr, size_t new_size);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 void _putpid(pid_t pid);
-int _strncmp(const char* str1, const char* str2, size_t n);
+int _strncmp(const char *str1, const char *str2, size_t n);
 
 #endif /* SHELL_H */

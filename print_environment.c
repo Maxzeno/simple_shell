@@ -12,7 +12,8 @@ int print_environment(void)
 	env = environ;
 	while (*env)
 	{
-		_prints("%s\n", *env);
+		_puts(*env);
+		_puts("\n");
 		env++;
 	}
 

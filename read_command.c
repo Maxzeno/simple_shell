@@ -13,11 +13,14 @@ char *readcommand(void)
 
 	readed = NULL;
 	buffersize = 0;
-	_prints("$ ");
+	_puts("$ ");
 	is_ctrl_d = getline(&readed, &buffersize, stdin);
 
-	if (is_ctrl_d == -1)
+if (is_ctrl_d == -1)
+	{
+		_puts("\n");
 		exit(EXIT_FAILURE);
+	}
 
 	return (readed);
 }

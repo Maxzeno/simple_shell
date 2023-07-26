@@ -16,15 +16,15 @@ char *add_path_to_bin(char *originalString)
 
 	prefix = "/bin/";
 
-	prefixLength = strlen(prefix);
+	prefixLength = _strlen(prefix);
 
-	if (strncmp(originalString, prefix, prefixLength) == 0)
+	if (_strncmp(originalString, prefix, prefixLength) == 0)
 		return (originalString);
 
-	newStringLength = prefixLength + strlen(originalString) + 1;
+	newStringLength = prefixLength + _strlen(originalString) + 1;
 	newString = malloc(sizeof(char *) * newStringLength);
 	_strcpy(newString, prefix);
-	strcat(newString, originalString);
+	_strcat(newString, originalString);
 
 	return (newString);
 }

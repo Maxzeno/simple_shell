@@ -56,7 +56,7 @@ char **parsecommand(char *text)
 		if (index >= buffersize)
 		{
 			buffersize += 64;
-			tokens = realloc(tokens, buffersize * sizeof(char *));
+			tokens = _realloc(tokens, buffersize * sizeof(char *));
 			if (tokens == NULL)
 				print_error_realloc();
 		}

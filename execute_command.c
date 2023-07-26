@@ -7,7 +7,8 @@
  */
 int shell_exit_status(void)
 {
-	_prints("%d\n", 0);
+	_puts("0");
+	_puts("\n");
 	return (1);
 }
 
@@ -18,7 +19,7 @@ int shell_exit_status(void)
  */
 int print_process_pid(void)
 {
-	_prints("%u\n", getpid());
+	_putpid(getpid());
 	return (1);
 }
 
@@ -30,7 +31,8 @@ int print_process_pid(void)
  */
 int print_not_found(char *arg)
 {
-	_prints("%s: command not found\n", arg);
+	_puts(arg);
+	_puts(": command not found\n");
 	return (1);
 }
 
@@ -43,21 +45,22 @@ int print_not_found(char *arg)
 int executecommand(char **argv)
 {
 	pid_t pid;
+	char *envp[] = {NULL};
 
-	if (strcmp(argv[0], "env") == 0)
+	if (_strcmp(argv[0], "env") == 0)
 		return (print_environment());
 
-	if (strcmp(argv[0], "exit") == 0)
+	if (_strcmp(argv[0], "exit") == 0)
 	{
 		if (argv[1])
 			exit(_atoi(argv[1]));
 		return (0);
 	}
 
-	if (strcmp(argv[0], "$$") == 0)
+	if (_strcmp(argv[0], "$$") == 0)
 		return (print_process_pid());
 
-	if (strcmp(argv[0], "$?") == 0)
+	if (_strcmp(argv[0], "$?") == 0)
 		return (shell_exit_status());
 
 	if (access(add_path_to_bin(argv[0]), X_OK) != 0)
@@ -72,9 +75,9 @@ int executecommand(char **argv)
 
 	if (pid == 0)
 	{
-		execvp(argv[0], argv);
-		exit(EXIT_FAILURE);
-	}
+		execve(add_path_to_bin(argv[0]), argv, envp);
+        perror("Error execve");
+        exit(EXIT_FAILURE);	}
 	else
 		wait(NULL);
 

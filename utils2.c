@@ -3,7 +3,7 @@
 /**
  * _atoi - converts a string to an integer
  * @text: the string to be converted to integer
- * Return: returns converted number or 0 
+ * Return: returns converted number or 0
  */
 int _atoi(char *text)
 {
@@ -48,14 +48,15 @@ int _atoi(char *text)
  *
  * Return: pointer to da ol'block nameen.
  */
-void *_realloc(void *ptr, size_t new_size) 
+void *_realloc(void *ptr, size_t new_size)
 {
 	size_t i;
 	void *new_ptr;
 	size_t old_size;
 	size_t copy_size;
 
-	if (new_size == 0) {
+	if (new_size == 0)
+	{
 		free(ptr);
 		return (NULL);
 	}

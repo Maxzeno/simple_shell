@@ -41,7 +41,7 @@ void _putpid(pid_t pid)
 		pid_str[i++] = pid % 10 + '0';
 		pid /= 10;
 	} while (pid > 0);
-    
+
 	while (i > 0)
 		_putchar(pid_str[--i]);
 

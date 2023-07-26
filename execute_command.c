@@ -7,7 +7,7 @@
  */
 int shell_exit_status(void)
 {
-	printf("%d\n", 0);
+	_prints("%d\n", 0);
 	return (1);
 }
 
@@ -18,7 +18,7 @@ int shell_exit_status(void)
  */
 int print_process_pid(void)
 {
-	printf("%u\n", getpid());
+	_prints("%u\n", getpid());
 	return (1);
 }
 
@@ -30,7 +30,7 @@ int print_process_pid(void)
  */
 int print_not_found(char *arg)
 {
-	printf("%s: command not found\n", arg);
+	_prints("%s: command not found\n", arg);
 	return (1);
 }
 
@@ -50,7 +50,7 @@ int executecommand(char **argv)
 	if (strcmp(argv[0], "exit") == 0)
 	{
 		if (argv[1])
-			exit(atoi(argv[1]));
+			exit(_atoi(argv[1]));
 		return (0);
 	}
 

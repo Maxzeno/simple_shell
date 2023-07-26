@@ -12,7 +12,7 @@ int print_environment(void)
 	env = environ;
 	while (*env)
 	{
-		printf("%s\n", *env);
+		_prints("%s\n", *env);
 		env++;
 	}
 

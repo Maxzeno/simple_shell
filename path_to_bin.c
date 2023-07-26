@@ -23,7 +23,7 @@ char *add_path_to_bin(char *originalString)
 
 	newStringLength = prefixLength + strlen(originalString) + 1;
 	newString = malloc(sizeof(char *) * newStringLength);
-	strcpy(newString, prefix);
+	_strcpy(newString, prefix);
 	strcat(newString, originalString);
 
 	return (newString);

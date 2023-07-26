@@ -18,5 +18,9 @@ int print_environment(void);
 int shell_exit_status(void);
 int print_process_pid(void);
 int print_not_found(char *arg);
+char *_strcpy(char *destination, char *source);
+int _putchar(char character);
+void _prints(char *text);
+int _atoi(char *s);
 
 #endif /* SHELL_H */
